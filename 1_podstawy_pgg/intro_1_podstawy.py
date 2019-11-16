@@ -76,3 +76,16 @@ Kot
 ma 
 kompilator
 """)
+
+print()
+print(1 == 1) # Uwaga!!!! na dwa znaki =
+print(1 != 1)
+print(1 > 2)
+print(1 < 2)
+print(1 >= 2)
+print(1 <= 2)
+
+
+
+
+
