@@ -102,3 +102,9 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+/.idea/inspectionProfiles/profiles_settings.xml
+/.idea/.gitignore
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/python_20191116.iml
+/.idea/vcs.xml
