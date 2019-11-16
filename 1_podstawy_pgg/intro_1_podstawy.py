@@ -77,6 +77,7 @@ ma
 kompilator
 """)
 
+# operatory porównania
 print()
 print(1 == 1) # Uwaga!!!! na dwa znaki =
 print(1 != 1)
@@ -84,8 +85,18 @@ print(1 > 2)
 print(1 < 2)
 print(1 >= 2)
 print(1 <= 2)
+print()
 
+# instrukcje warunkowe
 
+liczba = int(input("Podaj liczbę: "))
+print("przed ifem")
 
+if liczba == 10:
+    print("wewnatrz ifa")
+    print("drugi print w ifie")
+else:
+    print("jestem w else")
 
+print("po ifie")
 
