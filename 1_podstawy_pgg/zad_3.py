@@ -17,3 +17,4 @@ print('Wzrost: ' + str(wzrost))
 # podajemy DWA argumenty
 print('Imię:', imie) # przy kilku argumentach, print oddziela je od siebie spacją
 print('Wzrost:', wzrost)
+
