@@ -141,3 +141,15 @@ print()
 for x in range(4, 10, 2):
     print(x)
 
+
+a = 1
+b = 2
+print(a, b)
+
+# tmp = a
+# a = b
+# b = tmp
+
+a, b = b, a
+
+print(a, b)
