@@ -108,3 +108,36 @@ print(a)
 
 del(a[:])
 print(a)
+
+# Petla for
+#        0   1   2   3   4   5   6   7   8   9
+lista = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+
+i = 0
+while i < len(lista): # UWAGA! < a nie <=
+    print(lista[i])
+    i += 1
+
+# x to nazwa zmiennej, w której python bedzie wkładał kolejne elementy z listy,
+# można ją nazwać dowolnie
+for x in lista:
+    print(x)
+
+print("-"*30)
+# for z użyciem range()
+# range(stop) -> liczby od 0 do stop-1
+# range(start, stop) -> liczby od start do stop-1
+# range(start, stop, krok) -> liczby od start do stop-1 co krok
+for x in range(10):
+    print(x)
+
+print()
+
+for x in range(4, 10):
+    print(x)
+
+print()
+
+for x in range(4, 10, 2):
+    print(x)
+
