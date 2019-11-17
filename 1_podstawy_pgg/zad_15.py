@@ -7,11 +7,13 @@ dobrym kierunku. Wyjście poza planszę oznacza koniec gry. Po
 znalezieniu skarbu wypisz liczbę ruchów wykorzystanych przez
 użytkownika na dojście do celu.
 Dodatkowo:
-I po wykonaniu większej liczby kroków niż dwukrotność
+- po wykonaniu większej liczby kroków niż dwukrotność
 minimalnej liczby kroków umieść skarb w nowym miejscu,
-I z prawdopodobieństwem 1/5 nie podawaj graczowi wskazówki
+- z prawdopodobieństwem 1/5 nie podawaj graczowi wskazówki
 po wykonaniu kroku.
 """
+
+from random import randint
 
 gracz_x = 1
 gracz_y = 1
@@ -20,6 +22,7 @@ skarb_x = 5
 skarb_y = 5
 
 liczba_krokow = 0
+minimalna_liczba_krokow = abs(skarb_x - gracz_x) + abs(skarb_y - gracz_y)
 
 while True:
     print(f'Twoja pozycja x={gracz_x:2} y={gracz_y:2}')
@@ -44,6 +47,12 @@ while True:
 
     liczba_krokow += 1
 
+    if liczba_krokow > (minimalna_liczba_krokow * 2):
+        skarb_x = randint(0,10)
+        skarb_y = randint(0,10)
+        minimalna_liczba_krokow = abs(skarb_x - gracz_x) + abs(skarb_y - gracz_y)
+        liczba_krokow = 0
+
     if gracz_x < 0 or gracz_x > 10 or gracz_y < 0 or gracz_y > 10:
         print("Jesteś poza planszą. Koniec gry!")
         break
@@ -52,10 +61,11 @@ while True:
         print(f'Brawo! Znalazłeś skarb! Wykonana liczba kroków = {liczba_krokow}')
         break
 
-    if odleglosc_po_ruchu < odleglosc_przed_ruchem:
-        print("Ciepło")
-    else:
-        print("Zimno")
+    if randint(1,5) != 5:
+        if odleglosc_po_ruchu < odleglosc_przed_ruchem:
+            print("Ciepło")
+        else:
+            print("Zimno")
 
 
 
