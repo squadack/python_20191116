@@ -89,7 +89,8 @@ print()
 
 # instrukcje warunkowe
 
-liczba = int(input("Podaj liczbę: "))
+# liczba = int(input("Podaj liczbę: "))
+liczba = 10
 print("przed ifem")
 
 if liczba == 10:
@@ -99,4 +100,15 @@ else:
     print("jestem w else")
 
 print("po ifie")
+
+
+# Pętla while
+
+i = 0
+while i < 100:
+    print(i)
+    # i = i + 1 # i++
+    i += 1 # robi to samo co i = i + 1
+
+
 
