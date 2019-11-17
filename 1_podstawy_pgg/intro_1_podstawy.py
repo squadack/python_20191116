@@ -111,4 +111,8 @@ while i < 100:
     i += 1 # robi to samo co i = i + 1
 
 
-
+# obiekty
+print(type(1))
+print(type('ala ma kota'))
+print('ala ma kota'.isdecimal())
+print('15'.isdecimal())
