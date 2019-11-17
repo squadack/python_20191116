@@ -153,3 +153,44 @@ print(a, b)
 a, b = b, a
 
 print(a, b)
+
+# ==== NAPISY ====
+
+napis = "Ala ma kota a kot ma kompilator"
+
+# operator dostępu / wycinania dziala tak samo
+# jak w przypadku tupli czy list
+print(napis[0])
+print(napis[1:3]) #lewostronnie domkniety, prawostronnie otwarty
+print(napis[4:])
+print(napis[::-1])
+
+print(napis.lower())
+print(napis.upper())
+print(napis.title()) # każda litera słowa z dużej litery
+print(napis.capitalize()) # pierwsza litera w napisie z duzej litery
+
+print(napis.split()) # standardowo jest robiony po spacji
+print(napis.split('a'))
+
+po_podziale = napis.split()
+print(po_podziale)
+po_scaleniu = '<->'.join(po_podziale)
+print(po_scaleniu)
+
+print(napis.count('a'))
+print(napis.index('a')) # pierwszy index w napisie, gdzie wystepuje dany znak
+print(napis.find('a'))  # pierwszy index w napisie, gdzie wystepuje dany znak
+
+# print(napis.index('z')) # jak nie znajdzie to rzuci wyjątkiem
+print(napis.find('z')) # jak nie znajdzie to zwróci -1
+
+# Palindrom - https://pl.wikipedia.org/wiki/Palindrom
+napis = "Ala ma kota" # nie jest palindromem
+napis = "Kamil Ślimak" # jest palindromem
+napis = napis.lower()
+napis = napis.replace(' ', '')
+print(napis)
+print(napis[::-1])
+
+print(napis == napis[::-1])
