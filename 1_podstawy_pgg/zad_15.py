@@ -19,8 +19,12 @@ gracz_y = 1
 skarb_x = 5
 skarb_y = 5
 
+liczba_krokow = 0
+
 while True:
     print(f'Twoja pozycja x={gracz_x:2} y={gracz_y:2}')
+
+    odleglosc_przed_ruchem = abs(skarb_x - gracz_x) + abs(skarb_y - gracz_y)
 
     kierunek = input("Podaj kierunek (w,s,a,d): ")
 
@@ -36,9 +40,22 @@ while True:
         print("Niepoprawny kierunek")
         continue
 
+    odleglosc_po_ruchu = abs(skarb_x - gracz_x) + abs(skarb_y - gracz_y)
+
+    liczba_krokow += 1
+
     if gracz_x < 0 or gracz_x > 10 or gracz_y < 0 or gracz_y > 10:
         print("Jesteś poza planszą. Koniec gry!")
         break
+
+    if gracz_x == skarb_x and gracz_y == skarb_y:
+        print(f'Brawo! Znalazłeś skarb! Wykonana liczba kroków = {liczba_krokow}')
+        break
+
+    if odleglosc_po_ruchu < odleglosc_przed_ruchem:
+        print("Ciepło")
+    else:
+        print("Zimno")
 
 
 
