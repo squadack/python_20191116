@@ -46,4 +46,65 @@ print( x[::2] )
 print( x[::-1] )
 print( x[::-2] )
 
+# przydatne metody
+print( len(x) )
+print( 'b' in x )
+print( 'z' in x )
 
+f = (1, 2, 3, 4, 5)
+print(min(f))
+print(max(f))
+print(sum(f))
+
+a = (1, 2, 3)
+b = (4, 5, 6)
+
+c = a + b
+print(c)
+
+# d = a * b
+d = a * 3
+print(d)
+
+a = ('a', 'b', 'd')
+# a[2] = 'c' # tupli nie możemy zmieniać po utworzeniu
+print(a)
+
+# ==== LISTY ====
+a = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+
+# operator [] działa dokładnie tak samo
+print(a)
+print(a[0]) # 10
+print(a[-1]) # 100
+
+a[0] = -1
+print(a)
+
+a.append(110) # dokłada 110 na koniec listy
+print(a)
+
+a.insert(1, 12) # wklada na index 1 wartosc 12 i przesuwa cala reszte o jeden
+print(a)
+
+a[0:2] = [1, 2]
+print(a)
+
+a[0:2] = [1, 2, 3, 4]
+print(a)
+
+# a.append([120, 130, 140])
+a.extend([120, 130, 140])
+print(a)
+
+del(a[0])
+print(a)
+
+del(a[0:2])
+print(a)
+
+del(a[-2:])
+print(a)
+
+del(a[:])
+print(a)
