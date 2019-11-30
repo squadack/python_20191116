@@ -78,7 +78,8 @@ print( opakowywacz('ala na kota', end='---', start='>>>') )
 # jak mieszamy dwa sposoby, to najpierw podajemy argumenty pozycyjne, później nazwane
 # print( opakowywacz(end="<<<", 'ala ma kota') )
 
-
+# =======
+print(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
 
 
 
