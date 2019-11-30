@@ -381,5 +381,95 @@ b = {1, 2, 4, 5}
 # a ^= b
 a.symmetric_difference_update(b)
 print(a)
+print("="*60)
+# ==== WYRAZENIA LISTOWE ====
+# mogą być i wyrażenia zbiorowe, wyrażenia słownikowe
+# list comprehension, dict comprehension, set comprehension
 
 
+dane = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+
+wynik = []
+for wartosc in dane:
+    wynik.append( wartosc ** 2 )
+
+print(wynik)
+
+# zrobienie tego samego ale przy uzyciu list comprehension
+wynik = [ wartosc ** 2 for wartosc in dane ]
+print(wynik)
+
+liczby = { x for x in range(0, 101, 2) } # set comprehension
+print(liczby)
+
+print("="*60)
+
+pensje = [1000, 2000, 2500, 1500, 5000]
+print(pensje)
+# na podstawie pensji policzyc kwote do wypłaty dla pracownika,
+# czyli trzeba potracic podatek
+do_wyplaty = []
+for pensja in pensje:
+    do_wyplaty.append( round(pensja * 0.81, 2) )
+
+print(do_wyplaty)
+
+do_wyplaty = [ round(pensja * 0.81, 2) for pensja in pensje ]
+print(do_wyplaty)
+
+# Premie -> jeżeli pensja jest mniejsza/rowna 2000 to dajemy 10%, jak wieksza to 0
+premie = []
+for pensja in pensje:
+    if pensja <= 2000:
+        premie.append(0.10)
+    else:
+        premie.append(0)
+
+print(premie)
+
+premie = [ 0.10 if pensja <= 2000 else 0 for pensja in pensje ]
+print(premie)
+
+# wartosc premii
+print( list( zip(do_wyplaty, premie) ) )
+
+wartosc_premii = [ pensja * premia for pensja, premia in zip(do_wyplaty, premie) ]
+print(wartosc_premii)
+
+# policzyć kwoty do wypłaty, czyli kwota_netto + wartość premii
+do_wyplaty_z_premia = [ kwota_do_wyplaty + kwota_premii for kwota_do_wyplaty, kwota_premii in zip(do_wyplaty, wartosc_premii)]
+print(do_wyplaty_z_premia)
+
+# potrzebuje liste pracownikow co im trzeba wyplacic wiecej niz 2000 zł
+pracownicy_drozsi = []
+for pensja in do_wyplaty_z_premia:
+    if pensja > 2000:
+        pracownicy_drozsi.append(pensja)
+
+print(pracownicy_drozsi)
+
+pracownicy_drozsi = [ pensja for pensja in do_wyplaty_z_premia if pensja > 2000 ]
+print(pracownicy_drozsi)
+
+# przyklady - podsumowanie
+a = [ x for x in range(0,11) ] # list comprehension
+print(type(a))
+print(a)
+
+a = { x for x in range(0,11) } # set comprehension
+print(type(a))
+print(a)
+
+a = { x: x+1 for x in range(0,11) } # dict comprehension - muszę podać klucz i wartość
+print(type(a))
+print(a)
+
+# nie ma tuple comprehension
+# ale możemy w tej manierze użyć nawiasów ( )
+# i wtedy dostaniemy generator expression
+
+generator = ( x for x in range(0, 11) )
+print(generator)
+
+for liczba in generator:
+    print(liczba)
