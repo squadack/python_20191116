@@ -42,3 +42,15 @@ print(wynik)
 
 wynik = iloczyn(2.5, 3.5)
 print(wynik)
+
+print("="*60)
+# ============
+napis = 'ala ma kota'
+print( napis.count('a') )
+
+
+
+
+
+
+
