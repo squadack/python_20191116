@@ -194,3 +194,93 @@ print(napis)
 print(napis[::-1])
 
 print(napis == napis[::-1])
+
+print("="*60)
+# ==== SLOWNIK ====
+
+slownik = {
+    'ala': 10,
+    'ela': 20,
+    'ula': 30,
+    1: 'kot', # -> __hash__ = 1
+    2.5: 1500,
+    True: 5000, # -> __hash__ = 1
+    (1,2): 6000,
+    # [1,2]: 7000, # TypeError: unhashable type: 'list' -> lista nie ma zaimplementowanej metody __hash__
+}
+
+print(slownik)
+print(slownik['ela'])
+print(slownik[1])
+print(slownik[2.5])
+print(slownik[True])
+
+print( (1,2).__hash__() )
+print( 'ala'.__hash__())
+zmienna = 1
+print( zmienna.__hash__() )
+print( True.__hash__() )
+
+# print( [1,2].__hash__() )
+
+slownik['ela'] = 1234
+print(slownik)
+
+
+# mozemy sprawdzic czy klucz znajduje się w danym słowniku
+print( 'ala' in slownik )
+print( 'krysia' in slownik )
+
+# inny sposob na pobieranie elementow
+print( slownik.get('ala') )
+print( slownik.get('krysia', 123) )
+
+# jak usuwamy elementy ze slownika
+print(slownik)
+del(slownik['ala'])
+print(slownik)
+
+# pobieranie i usuwanie elementu ze słownika, za jednym razem
+wartosc = slownik.pop('ela')
+print(wartosc)
+print(slownik)
+
+print()
+
+# popitem oddaje i usuwa ze slownika ostatnio dodany element
+# od Pythona 3.7 - to jest ostatnio dodany element
+# wcześniej był to losowy element, nie koniecznie musiał to być ostatni element
+wartosc = slownik.popitem()
+print(wartosc)
+print(slownik)
+
+print("="*60)
+
+# Iterowanie po słowniku przy użyciu for
+for x in slownik: # pod x znajduje sie klucz ze slownika
+    print(x, " | ", slownik[x])
+
+print("="*60)
+for x in slownik.keys():
+    print(x)
+
+print("="*60)
+for x in slownik.values():
+    print(x)
+
+print("="*60)
+print(slownik.keys())
+print(slownik.values())
+print(slownik.items())
+
+print("="*60)
+
+a, b = (10, 20)
+print(a)
+print(b)
+
+print("="*60)
+
+# zmienne w pętli - klucz i wartosc, moga sie nazywac dowolnie
+for klucz, wartosc in slownik.items():
+    print(klucz, '->', wartosc)
