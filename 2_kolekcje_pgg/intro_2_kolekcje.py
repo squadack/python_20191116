@@ -284,3 +284,102 @@ print("="*60)
 # zmienne w pętli - klucz i wartosc, moga sie nazywac dowolnie
 for klucz, wartosc in slownik.items():
     print(klucz, '->', wartosc)
+
+print("="*60)
+# ==== ZBIOR ====
+
+zbior = {10, 20, 30, 40, 50}
+print(zbior)
+
+# dodawanie elementu do zbioru
+zbior.add(60)
+print(zbior)
+
+# usuwanie elementu ze zbioru
+zbior.remove(60)
+print(zbior)
+# zbior.remove(60) # jezeli chcemy usunac element, ktorego nie ma, to remove rzuci wyjatkiem
+zbior.discard(60) # jak element jest w zbiorze, to zostanie usuniety, jak go nie ma, to nic sie nie stanie, nie bedzie wyjatku
+
+# print( zbior[0] ) # zbior nie obsluguje dostepu do pojedynczego elementu
+
+for element in zbior:
+    print(element)
+
+print( len(zbior) )
+
+# Operacje teoriomnogościowe
+a = {1, 2, 3}
+b = {1, 2, 4, 5}
+
+# suma, unia, czyli połączenie dwóch zbiorów
+print( a | b ) # operator |
+print( a.union(b) ) # metoda .union
+
+# część wspólna dwóch zbiorów, iloczyn
+print( a & b )
+print( a.intersection(b) )
+
+# różnica dwóch zbiorów
+print( a - b ) # od zbioru a odejmujemy elementy ze zbioru b
+print( a.difference(b) )
+
+# różnica symetryczna - od sumy zbiorow a i b odejmujemy czesc wspolna zbiorow a i b
+# dostajemy te elementy zbiorow a i b, ktore nie sa wspolne
+print( a ^ b )
+print( a.symmetric_difference(b) )
+
+# czy zbiory a i b są rozłączne, czyli czy nie mają wspólnych elementów
+print( a.isdisjoint(b) )
+
+# czy a jest podzbiorem b?
+print( a <= b ) # zbior a może być taki sam jak zbiór b, bo mamy mniejsze lub równe
+print( a < b ) # tutaj zbiory nie mogą być równe
+
+c = {1, 2}
+d = {1, 2}
+
+print(c <= d) # True
+print(c < d) # False
+print(c < a) # True
+
+# można to sprawdzać w drugą stronę, czyli
+# sprawdzamy czy a jest nadzbiorem b
+print( a > b ) # False
+print( a >= b ) # False
+print( a > c ) # True
+print( a >= c ) # True
+
+# dotychczasowe operacje na zbiorach, ktore wykonywalismy
+# powodowaly utworzenie nowego zbioru bedacego wynikiem konretnej operacji
+
+# poznanymi dotychczas operacjami mozemy modyfikowac zbiory
+a = {1, 2, 3}
+b = {1, 2, 4, 5}
+
+# suma
+# a |= b
+a.update(b)
+print(a) # w zbiorze a zostala zapisana suma zbiorow a i b
+
+# iloczyn, czesc wspolna
+a = {1, 2, 3}
+b = {1, 2, 4, 5}
+# a &= b
+a.intersection_update(b) # metody z _update na koncu modyfikuja pierwotny zbior
+print(a)
+
+# róznica zbiorów
+a = {1, 2, 3}
+b = {1, 2, 4, 5}
+a -= b
+print(a)
+
+# roznica symetryczna
+a = {1, 2, 3}
+b = {1, 2, 4, 5}
+# a ^= b
+a.symmetric_difference_update(b)
+print(a)
+
+
