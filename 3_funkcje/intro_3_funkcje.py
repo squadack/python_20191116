@@ -49,6 +49,34 @@ napis = 'ala ma kota'
 print( napis.count('a') )
 
 
+################################################
+
+print('ala', 'krysia', 'zosia')
+print('a')
+print('b')
+print('c')
+
+print('tomek', end='|')
+print('piotrek')
+
+# ==== Argumenty domyślne w funkcjach =====
+def opakowywacz(napis, start='>', end='<'):
+    return start + napis + end
+
+# uruchamianie funkcji z przekazanie argumentów w sposób pozycyjny
+print( opakowywacz('ala ma kota', '>>>', '<<<') )
+print( opakowywacz('kot ma kompilator')) # start i end maja tutaj wartości domyślne, nie musze ich podawać
+print( opakowywacz('ala ma kota', '>>>') )
+
+# uruchamianie funkcji odbywa się poprzez przekazanie argumentów nazwanych
+print( opakowywacz(start='>>', end='<<', napis='ala ma kota') )
+print( opakowywacz(napis='ala ma kota')) # start i end mają wartość domyślną
+
+# uruchamianie funkcji z przekazaniem argumentów w sposób pozycyjny i nazwany
+print( opakowywacz('ala na kota', end='---', start='>>>') )
+
+# jak mieszamy dwa sposoby, to najpierw podajemy argumenty pozycyjne, później nazwane
+# print( opakowywacz(end="<<<", 'ala ma kota') )
 
 
 
