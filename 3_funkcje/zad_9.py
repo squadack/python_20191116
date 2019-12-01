@@ -29,5 +29,10 @@ def silnia(n: int):
     for i in range(1, n + 1):
         wynik *= i
     return wynik
+    # przy wywolaniu rekurencyjnym, dekorator tez jest uruchamiany za kazdym razem, ajć!
+    # if n == 0:
+    #     return 1
+    # else:
+    #     return n * silnia(n-1)
 
-print( silnia(50000) )
+print( silnia(5) )
