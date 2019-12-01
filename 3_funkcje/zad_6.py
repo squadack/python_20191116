@@ -6,7 +6,15 @@ splaszcz([1, 2, 3, [4, 5, [6]], 7])
 """
 
 
-def splaszcz(lista):
+def splaszcz(lista: list) -> list:
+    """
+    Funkcja do spłaszczania listy. Podaj tylko listę.
+    :param lista:
+    :return:
+    """
+    if type(lista) is not list:
+        raise TypeError("Musisz podac liste")
+
     wynik = []
 
     for element in lista:
@@ -17,6 +25,10 @@ def splaszcz(lista):
 
     return wynik
 
+import pytest
+def test_inne_typy():
+    with pytest.raises(TypeError):
+        splaszcz("ala ma kota")
 
 def test_pusta_lista():
     assert splaszcz([]) == []
