@@ -241,4 +241,13 @@ print(lista)
 lista.sort(key=cmp_to_key(komparator))
 print(lista)
 
+# ==============================
 
+lista = [10, 20, 30, 40]
+print(lista)
+for x in lista:
+    print(x)
+
+# print(list(enumerate(lista)))
+for indeks, wartosc in enumerate(lista):
+    print(indeks, ' - ', wartosc)
