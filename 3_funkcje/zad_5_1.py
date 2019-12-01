@@ -11,10 +11,10 @@ def silnia(n: int):
         # return None # programista używający naszej funkcji będzie musiał dodatkowo sprawdzić czy nie dostał None
         raise ValueError('n musi byc intem i być większe od 0')
 
-    wynik = 1
-    for i in range(1, n + 1):
-        wynik *= i
-    return wynik
+    if n == 0:
+        return 1
+    else:
+        return n * silnia(n-1)
 
 
 import pytest
