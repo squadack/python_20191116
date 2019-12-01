@@ -251,3 +251,58 @@ for x in lista:
 # print(list(enumerate(lista)))
 for indeks, wartosc in enumerate(lista):
     print(indeks, ' - ', wartosc)
+
+print("="*60)
+# ============= co z falsem? ================
+
+zmienna = 'ala ma kota' # T
+zmienna = '' # F
+zmienna = '0' # T
+zmienna = 'False' # T
+zmienna = 0 # F
+zmienna = -1 # T
+zmienna = 1 # T
+zmienna = () # F
+zmienna = (1) # T
+zmienna = (False) # F -> bo to NIE JEST tupla, to po prostu bool
+zmienna = (False, ) # T -> bo to JEST tupla
+zmienna = []
+zmienna = {}
+zmienna = set()
+zmienna = None
+
+if zmienna: # python musi przerobić to wyrażenie (czyli wartosc zmiennej) na wartosc bool (True, False)
+    print("PRAWDA")
+else:
+    print("FALSZ")
+
+
+# ====== leniwe wyliczanie warunkow ============
+
+print("="*60)
+
+print(print("Ala ma kota"))
+
+
+
+if print("Ala ma kota"):
+    print("Jest true")
+else:
+    print("Jest false")
+
+
+print("="*60)
+# zmienna = 0
+zmienna = 5
+
+# jezeli pierwsza czesc warunku or jest prawdziwa, to python NIE sprawdza drugiej części warunku, bo i tak cały or będzie prawdziy
+# jezeli pierwsza czesc warunku or jest fałszywa, wtedy python sprawdzi druga czesc warunku
+if zmienna < 2 or print("Ala ma kota"):
+    print("PRAWDA")
+else:
+    print("FALSZ")
+
+
+
+
+

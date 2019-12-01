@@ -11,19 +11,13 @@ przytnij(
 """
 
 def przytnij(data, start, stop):
-    # znajdujemy klucz w liscie data, od którego mamy zacząć kroić
-    for indeks, wartosc in enumerate(data):
-        if start(wartosc) == True:
-            break
-    else: # https://docs.python.org/3/tutorial/controlflow.html#break-and-continue-statements-and-else-clauses-on-loops
-        return []
-    # w tym miejscu juz wiem jaki jest indeks, od którego mam zacząć ciąć
-
     rezultat = []
-    for wartosc in data[indeks:]:
-        rezultat.append(wartosc)
-        if stop(wartosc) == True:
-            break
+
+    for wartosc in data:
+        if rezultat or start(wartosc):
+            rezultat.append(wartosc)
+            if stop(wartosc):
+                break
 
     return rezultat
 
