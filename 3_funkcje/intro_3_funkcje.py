@@ -107,3 +107,138 @@ def fun(a, b, c=10, *args, **kwargs):
 fun(1, 2)
 fun(1, 2, 3, 4, 5, 6, 7)
 fun(1, 2, 3, 4, 5, 6, 7, x=1, y=1)
+
+print("="*60)
+# ==================================
+
+# UWAGA! ACHTUNG! ATTENTION!
+# funkcja to kolejny typ danych
+# funckję mogę przekladac miedzy roznymi pudelkami (zmiennymi)
+def czesc(imie):
+    print(f"Czesc {imie}")
+
+czesc('Piotr')
+
+funkcja_co_mowi_czesc = czesc
+funkcja_co_mowi_czesc('Zosia')
+
+moj_print = print
+moj_print('Ala ma kota')
+
+
+
+def kwadrat(x):
+    return x ** 2
+
+print(kwadrat(3))
+
+
+kwadrat = lambda x: x ** 2
+print(kwadrat(4))
+
+square = kwadrat
+print(square(5))
+
+
+def sumator(a, b, c):
+    return a + b + c
+
+print(sumator(10, 20, 30))
+
+# w funkcji lambda możemy definiować wiele argumentów
+sumator = lambda a, b, c: a + b + c
+print(sumator(10, 20, 30))
+
+# zwracanie rzeczy z funkcji lambda
+def x_mniejsze_od_y(x, y):
+    if x < y:
+        return True
+    else:
+        return False
+
+print( x_mniejsze_od_y(2, 3) )
+print( x_mniejsze_od_y(20, 10) )
+
+x_mniejsze_od_y = lambda x, y: x < y
+print( x_mniejsze_od_y(2, 3) )
+print( x_mniejsze_od_y(20, 10) )
+
+# zwracanie ustalonych wartosci
+def witaj_swiecie():
+    return "Hello world!"
+
+print(witaj_swiecie())
+
+# lambda bez żadnych parametrów
+witaj_swiecie = lambda : "Hello world!"
+print(witaj_swiecie())
+
+# funkcji lambda bardzo często używa się wewnątrz innych funkcji,
+# tzn. przekazujemy funkcję lambda jako argument innej funkcji, żeby wykorzystać ją w środku
+
+def wykonaj_operacje_na_liscie(lista, operacja):
+    rezultat = []
+
+    for element in lista:
+        rezultat.append( operacja(element) )
+
+    return rezultat
+
+# moja_operacja = lambda x: x ** 2
+wynik = wykonaj_operacje_na_liscie([10, 20, 30], lambda x: x ** 2) # tutaj funckja służy do dostarczenia/przerobienia danych
+print(wynik)
+
+
+# funkcja w pythonie map(), która robi bardzo podobną rzecz co wykonaj_operacje_na_liscie
+lista = [10, 20, 30, 40]
+print( list(map(lambda x: x*2, lista)) )
+
+# filter
+lista = [-1, 2, -15, -81, 40, 100]
+print( list( filter(lambda x: x > 0, lista) ) )
+
+# sortowanie
+lista = [9, 8, 5, 2, 6, 1]
+print(lista)
+# lista.sort() # sortuje w porządku rosnącym
+lista.sort(reverse=True) # sortuje w porządku malejącym
+print(lista)
+
+lista = [ (2, 2), (3, 4), (4, 1), (1, 3) ]
+print(lista)
+lista.sort()
+lista.sort(key=lambda x: x[1])
+print(lista)
+print()
+
+
+
+lista = [ (2, 2), (3, 4), (4, 1), (1, 3) ]
+
+
+def komparator(a, b):
+    """
+    Komparator ma zwrócić dla dwóch porównywanych elementów następujace wartości,
+    których użyje metoda sort do sortowania.
+    -1 - kiedy a powinno być przed b ("a jest mniejsze od b")
+    0  - kiedy a i b są "rowne"
+    1  - kiedy a jest większe od b, a powinno być po b
+    :param a:
+    :param b:
+    :return:
+    """
+    if a[1] < b[1]:
+        return -1
+    elif a[1] == b[1]:
+        return 0
+    else:
+        return 1
+
+
+from functools import cmp_to_key
+
+print(lista)
+lista.sort(key=cmp_to_key(komparator))
+print(lista)
+
+
