@@ -302,7 +302,152 @@ if zmienna < 2 or print("Ala ma kota"):
 else:
     print("FALSZ")
 
+print("="*60)
+# ======== DEKORATORY ===============
+
+# Jak definiuje funkcje, to w srodku tej funkcji moge zdefiniowac inna funkcje
+
+def przedstaw_dzieciaki():
+    def pierwsze_dziecko():
+        print("Ala")
+
+    def drugie_dziecko():
+        print("Tomek")
+
+    pierwsze_dziecko()
+    drugie_dziecko()
 
 
+przedstaw_dzieciaki()
+# pierwsze_dziecko() # nie widac funkcji wewnetrznej
 
+print("="*60)
+# widocznosc zmiennych wewnatrz funkcji, poza funkcja i jak to wyglada
+
+a = 10
+
+def foo():
+
+    def bar():
+        print(f'z fun. bar a={a}')
+        print('Ala ma kota')
+        return 5
+
+    wynik = bar()
+    print(f'z fun. foo wynik = {wynik}')
+
+foo()
+
+print("="*60)
+
+def dekorator(x):
+
+    def opakowywacz():
+        print(x)
+
+    return opakowywacz
+
+funkcja_z_dekoratora = dekorator(5)
+funkcja_z_dekoratora()
+
+
+print("="*60)
+
+# domknięcie / closure
+def generator_sumatorow(ile_dodawac):
+
+    def sumator(liczba):
+        return liczba + ile_dodawac
+
+    return sumator
+
+
+sumator_5 = generator_sumatorow(5)
+
+print( sumator_5(100) )
+print( sumator_5(10) )
+print( sumator_5(20) )
+print( sumator_5(45) )
+print( sumator_5(80) )
+
+print("="*60)
+# oprócz wartości jak int, możemy też w argumencie przekazywać funkcje
+
+
+def powiedz_czesc(imie):
+    return f'Czesc {imie}'
+
+def powiedz_jestes_super(imie):
+    return f'{imie}, jestes super!!!'
+
+def pozdrow_piotrka(funkcja_do_pozdrawiania):
+    return funkcja_do_pozdrawiania('Piotr')
+
+print(  pozdrow_piotrka(powiedz_czesc)  )
+print(  pozdrow_piotrka(powiedz_jestes_super)  )
+
+
+print("="*60)
+# =======
+
+
+def przedstaw_dzieciaki(ktore):
+    def pierwsze_dziecko():
+        print("Ala")
+
+    def drugie_dziecko():
+        print("Tomek")
+
+    if ktore == 1:
+        return pierwsze_dziecko
+    else:
+        return drugie_dziecko
+
+fun = przedstaw_dzieciaki(1)
+fun()
+
+fun = przedstaw_dzieciaki(2)
+fun()
+
+przedstaw_dzieciaki(1)() # zapis skrotowy
+
+
+print("="*60)
+
+
+def dekorator(funkcja_do_udekorowania):
+
+    def opakowanie(*args, **kwargs):
+        print("Przed wywołaniem funkcji do udekorowania")
+        wynik = funkcja_do_udekorowania(*args, **kwargs)
+        print("Po wywołaniem funkcji do udekorowania")
+        return wynik
+
+    return opakowanie
+
+
+def hello_world():
+    print("Hello world!")
+
+udekorowane_hello_world = dekorator(hello_world)
+udekorowane_hello_world()
+print("="*60)
+udekorowane_print = dekorator(print)
+udekorowane_print('Ala', 'kot', 3.14, True)
+print("="*60)
+udekorowane_sum = dekorator(sum)
+wynik = udekorowane_sum([10,20,30])
+print(wynik)
+
+@dekorator
+def sumator(a,b):
+    return a + b
+
+wynik = sumator(1,2)
+print(wynik)
+
+# zamiast uzywac @dekorator moge to samo zrobic na piechotke
+# udekorowany_sumator = dekorator(sumator)
+# wynik = udekorowany_sumator(1, 2)
+# print(wynik)
 
