@@ -22,3 +22,13 @@ def formatuj(*args, **kwargs):
 print( formatuj('koszt $cena PLN', 'kwota $cena brutto', cena=10) )
 print( formatuj('ala ma $co', co='kota') )
 print( formatuj('Nazywam $imie $nazwisko', imie='Piotr', nazwisko='GG') )
+
+def test_wszystko():
+    assert True
+
+
+
+
+
+
+
