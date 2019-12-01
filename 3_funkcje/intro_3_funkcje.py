@@ -78,8 +78,32 @@ print( opakowywacz('ala na kota', end='---', start='>>>') )
 # jak mieszamy dwa sposoby, to najpierw podajemy argumenty pozycyjne, później nazwane
 # print( opakowywacz(end="<<<", 'ala ma kota') )
 
-# =======
+
+# ======= Dowolnie wiele argumentów =======
 print(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+print("="*60)
 
+def zliczacz(*args, **kwargs):
+    print("args =", args)
+    print("kwargs =", kwargs)
+    print()
 
+# bez argumentów
+zliczacz()
 
+# tylko argumenty pozycyje
+zliczacz(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+
+# tylko argumenty nazwane
+zliczacz(a=1, b=2, c='ala', d=4.5, e=True)
+
+# argumenty pozycyjne i nazwane - wymieszane
+zliczacz(1, 2, 3, a=1, b=2, c=True)
+
+# argumenty pozycyjne, z wartoscia domyslna, *args, **kwargs można mieszać
+def fun(a, b, c=10, *args, **kwargs):
+    print(a, b, c, args, kwargs)
+
+fun(1, 2)
+fun(1, 2, 3, 4, 5, 6, 7)
+fun(1, 2, 3, 4, 5, 6, 7, x=1, y=1)
