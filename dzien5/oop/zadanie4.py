@@ -11,7 +11,7 @@ class Basket:
     def __init__(self):
         self.zawartosc = []
 
-    def add_product(self, p: Product):
+    def add_product(self, p: Product, ilosc: int):
         self.zawartosc.append(p)
 
     def count_total_price(self):
