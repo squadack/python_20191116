@@ -22,5 +22,7 @@ except ValueError as e:
     # raise
 except MojWyjatek:
     print("Zlapalem moj wyjatek")
+finally:
+    print("wykona sie zawsze")
 
 print("koniec programu")
