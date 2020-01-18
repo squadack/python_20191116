@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista produktów</title>
+</head>
+<body>
+    <h1>TU BĘDZIE LISTA PRODUKTÓW</h1>
+    <h2>{{ zmienna }}</h2>
+    <ul>
+        {% for produkt in produkty %}
+        <li><a href="{% url 'qwer' produkt.id %}">{{ produkt.nazwa }}</a> - {{ produkt.cena }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

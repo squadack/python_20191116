@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ produkt.nazwa }}</title>
+</head>
+<body>
+    <h1>{{produkt.nazwa}}</h1>
+    <h3>Opis</h3>
+    <p>{{produkt.opis}}</p>
+    <h4>Cena: {{produkt.cena}}</h4>
+    {% if not produkt.dostepny %}
+    <h4>Produkt niedostępny</h4>
+    {% endif %}
+    <a href="{% url 'lista_produktow' %}">Powrót</a>
+</body>
+</html>

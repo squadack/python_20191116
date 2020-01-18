@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{autor}}</title>
+</head>
+<body>
+    <h1>{{autor}}</h1>
+    <ul>
+    {% for ksiazka in lista_ksiazek %}
+        <li>{{ksiazka.tytul}}</li>
+    {% endfor %}
+    </ul>
+    <a href="{% url 'lista_autorow' %}">Powrót</a>
+</body>
+</html>
